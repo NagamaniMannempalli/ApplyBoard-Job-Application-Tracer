@@ -18,9 +18,13 @@ public class CorsConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         // Frontend URL
-        configuration.setAllowedOrigins(
-                List.of("http://localhost:3000")
-        );
+        String frontendUrl = System.getenv("FRONTEND_URL");
+
+        if (frontendUrl == null) {
+            frontendUrl = "http://localhost:3000";
+        }
+
+        configuration.setAllowedOrigins(List.of(frontendUrl));
 
         // HTTP methods allowed
         configuration.setAllowedMethods(
