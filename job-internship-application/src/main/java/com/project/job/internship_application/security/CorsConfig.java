@@ -24,7 +24,7 @@ public class CorsConfig {
             frontendUrl = "http://localhost:3000";
         }
 
-        configuration.setAllowedOrigins(List.of(frontendUrl));
+        configuration.setAllowedOriginPatterns(List.of("*"));
 
         // HTTP methods allowed
         configuration.setAllowedMethods(
