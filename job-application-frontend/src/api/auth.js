@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/user";
+const API_URL = "https://applyboard-job-application-tracer.onrender.com/user";
 
 export const loginUser = (data) => {
   return axios.post(`${API_URL}/login`, data);
