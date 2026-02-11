@@ -2,6 +2,7 @@ package com.project.job.internship_application.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -34,13 +35,17 @@ public class SecurityConfig {
                 .httpBasic(httpBasic -> httpBasic.disable())
                 .formLogin(form -> form.disable())
                 .authorizeHttpRequests(auth -> auth
+
+                        // ✅ VERY IMPORTANT - allow preflight
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
                         // Public routes
                         .requestMatchers("/user/**").permitAll()
 
                         // Resume endpoints
                         .requestMatchers("/resumes/**").authenticated()
 
-                        // Applications - this line allows PUT, POST, GET, PATCH, etc.
+                        // Applications endpoints
                         .requestMatchers("/applications/**").authenticated()
 
                         // Fallback
