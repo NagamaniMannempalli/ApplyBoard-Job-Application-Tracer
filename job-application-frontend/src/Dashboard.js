@@ -302,7 +302,7 @@ const downloadResume = async (resume) => {
   try {
     const token = localStorage.getItem("token");
 
-    const res = await fetch(`http://localhost:8080${resume.filePath}`, {
+    const res = await fetch(`https://applyboard-job-application-tracer.onrender.com${resume.filePath}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

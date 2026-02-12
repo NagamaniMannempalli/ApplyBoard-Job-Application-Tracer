@@ -25,7 +25,7 @@ const ResetPassword = () => {
     setError("");
 
     try {
-      await axios.post("http://localhost:8080/user/reset-password", {
+      await axios.post("https://applyboard-job-application-tracer.onrender.com/user/reset-password", {
         email,
         password,
       });

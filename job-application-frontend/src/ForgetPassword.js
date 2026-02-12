@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     setLoading(true);
 
     try {
-      await axios.post("http://localhost:8080/user/forgot-password", { email });
+      await axios.post("https://applyboard-job-application-tracer.onrender.com/user/forgot-password", { email });
       navigate("/reset-password", { state: { email } });
     } catch (err) {
       setError("User does not exist");

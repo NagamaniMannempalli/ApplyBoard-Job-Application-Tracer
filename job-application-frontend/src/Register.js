@@ -35,7 +35,7 @@ const Register = () => {
     setErrors({});
 
     try {
-      await axios.post("http://localhost:8080/user/register", {
+      await axios.post("https://applyboard-job-application-tracer.onrender.com/user/register", {
         ...formData,
         password: formData.password.trim(),
       });
